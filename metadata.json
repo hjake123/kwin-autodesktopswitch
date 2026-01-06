@@ -13,7 +13,7 @@
         "Id": "kwin-autodesktopswitch",
         "Version": "1.0",
         "License": "GPLv3",
-        "Website": "https://example.com"
+        "Website": "https://github.com/hjake123/kwin-autodesktopswitch"
     },
     "X-Plasma-API": "javascript",
     "X-Plasma-MainScript": "code/main.js",
