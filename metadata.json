@@ -1,0 +1,21 @@
+{
+    "KPlugin": {
+        "Name": "Auto Spread Windows",
+        "Description": "Spread windows to empty workspaces while any exist",
+        "Icon": "preferences-system-windows",
+
+        "Authors": [
+            {
+                "Email": "dev@hyperlynx.dev",
+                "Name": "Hyperlynx Dev"
+            }
+        ],
+        "Id": "kwin-autodesktopswitch",
+        "Version": "1.0",
+        "License": "GPLv3",
+        "Website": "https://example.com"
+    },
+    "X-Plasma-API": "javascript",
+    "X-Plasma-MainScript": "code/main.js",
+    "KPackageStructure": "KWin/Script"
+}
