@@ -1,9 +1,9 @@
 workspace.windowAdded.connect(spreadWindowToEmptyDesktop);
 
 function spreadWindowToEmptyDesktop(window) {
-    if(windowIsRelevant(window)) {
+    if(windowIsRelevant(window) && !noWindowsOnDesktop(workspace.currentDesktop, window)) {
         for (const desktop of workspace.desktops) {
-            if(noWindowsOnDesktop(desktop)) {
+            if(noWindowsOnDesktop(desktop, window)) {
                 window.desktops = [desktop];
                 workspace.currentDesktop = desktop;
                 break;
@@ -12,9 +12,9 @@ function spreadWindowToEmptyDesktop(window) {
     }
 }
 
-function noWindowsOnDesktop(desktop) {
+function noWindowsOnDesktop(desktop, ignored) {
     for(const window of workspace.stackingOrder) {
-        if(windowIsRelevant(window) && window.desktops.includes(desktop)) {
+        if(windowIsRelevant(window) && window.desktops.includes(desktop) && window != ignored && !window.minimized) {
             return false;
         }
     }
