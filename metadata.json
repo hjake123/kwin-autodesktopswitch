@@ -11,7 +11,7 @@
             }
         ],
         "Id": "kwin-autodesktopswitch",
-        "Version": "1.1",
+        "Version": "1.2",
         "License": "GPLv3",
         "Website": "https://github.com/hjake123/kwin-autodesktopswitch"
     },
