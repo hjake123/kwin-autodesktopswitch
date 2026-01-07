@@ -1,7 +1,7 @@
 workspace.windowAdded.connect(spreadWindowToEmptyDesktop);
 
 function spreadWindowToEmptyDesktop(window) {
-    if(window.normalWindow && !window.specialWindow && !window.transient && window.moveable && !window.hidden && !window.skipSwitcher && !window.skipPager) {
+    if(windowIsRelevant(window)) {
         for (const desktop of workspace.desktops) {
             if(noWindowsOnDesktop(desktop)) {
                 window.desktops = [desktop];
@@ -14,10 +14,13 @@ function spreadWindowToEmptyDesktop(window) {
 
 function noWindowsOnDesktop(desktop) {
     for(const window of workspace.stackingOrder) {
-        if(window.normalWindow && window.desktops.includes(desktop)) {
+        if(windowIsRelevant(window) && window.desktops.includes(desktop)) {
             return false;
         }
     }
     return true;
 }
 
+function windowIsRelevant(window) {
+    return window.normalWindow && !window.specialWindow && !window.transient && window.moveable && !window.hidden && !window.skipSwitcher && !window.skipPager;
+}
